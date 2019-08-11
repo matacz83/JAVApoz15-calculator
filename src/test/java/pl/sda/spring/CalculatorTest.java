@@ -40,6 +40,7 @@ public class CalculatorTest {
         //then
         Assert.assertEquals(1.0, actual, 0.00000001);
     }
+
     @Test
     public void shouldReturnSixForGivenArgumentsOnMultiplicationOperation() {
         //given
@@ -52,16 +53,15 @@ public class CalculatorTest {
         //then
         Assert.assertEquals(6.0, actual, 0.00000001);
     }
-    @Test
-    public void shouldReturnTwoForGivenArgumentsOnDivisionOperation() {
+
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowRuntimeExceptionOnZeroDivision() {
         //given
-        double arg1 = 4.0;
-        double arg2 = 2.0;
+        double arg1 = 2.0;
+        double arg2 = 0;
 
         //when
-        double actual = calculator.calculate(OperationType.DIVISION, arg1, arg2);
-
-        //then
-        Assert.assertEquals(2.0, actual, 0.00000001);
+        calculator.calculate(OperationType.DIVISION, arg1, arg2);
     }
+
 }
