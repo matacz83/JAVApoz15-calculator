@@ -75,4 +75,16 @@ public class CalculatorTest {
         //then
         Assert.assertEquals(10.0, actual, 0.00000001);
     }
+    @Test
+    public void shouldReturnEightForGivenArgumentsOnPowerOperation() {
+        //given
+        double arg1 = 2.0;
+        double arg2 = 3.0;
+
+        //when
+        double actual = calculator.calculate(OperationType.POWER, arg1, arg2);
+
+        //then
+        Assert.assertEquals(8.0, actual, 0.00000001);
+    }
 }
