@@ -63,5 +63,16 @@ public class CalculatorTest {
         //when
         calculator.calculate(OperationType.DIVISION, arg1, arg2);
     }
+    @Test
+    public void shouldReturnTenForGivenArgumentsOnPercentageOperation() {
+        //given
+        double arg1 = 10.0;
+        double arg2 = 100.0;
 
+        //when
+        double actual = calculator.calculate(OperationType.PERCENTAGE, arg1, arg2);
+
+        //then
+        Assert.assertEquals(10.0, actual, 0.00000001);
+    }
 }
